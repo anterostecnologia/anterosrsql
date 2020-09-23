@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+  <anteros-configuration>
+	<session-factory>
+		<placeholder location="teste.properties" />
+		<package-scan-entity package-name="br.com.anteros.rsql.query.builder.model"/>
+		<include-security-model>true</include-security-model>
+		<dataSources>
+			<dataSource id="c3p0DataSource" className="com.mchange.v2.c3p0.ComboPooledDataSource">
+				<property name="driverClass" value="${jdbc.driverClassName}" />
+				<property name="jdbcUrl" value="${jdbc.url}" />
+				<property name="user" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+				<property name="acquireIncrement" value="${c3p0.acquireIncrement}" />
+				<property name="initialPoolSize" value="${c3p0.initialPoolSize}" />
+				<property name="maxPoolSize" value="${c3p0.maxPoolSize}" />
+				<property name="minPoolSize" value="${c3p0.minPoolSize}" />
+				<property name="maxIdleTime" value="${c3p0.maxIdleTime}" />
+				<property name="idleConnectionTestPeriod" value="${c3p0.idleConnectionTestPeriod}" />
+			</dataSource>
+			<dataSource id="jdbcDataSource"
+				className="br.com.anteros.persistence.sql.datasource.JDBCDataSource">
+				<property name="driverClassName" value="${jdbc.driverClassName}" />
+				<property name="username" value="${jdbc.username}" />
+				<property name="password" value="${jdbc.password}" />
+				<property name="url" value="${jdbc.url}" />
+			</dataSource>
+			<dataSource id="jndiDataSource"
+			    className="br.com.anteros.sql.jndi.JndiDataSourceFactory">
+				<property name="jndi-name" value="nomeDoJNDI" />
+			</dataSource>
+		</dataSources>
+		<properties>
+			<property name="driverClassName" value="${jdbc.driverClassName}" />
+			<property name="url" value="${jdbc.url}" />
+			<property name="username" value="${jdbc.username}" />
+			<property name="password" value="${jdbc.password}" />
+			<property name="dialect" value="${anteros.dialect}" />
+			<property name="showsql" value="${anteros.showsql}" />
+			<property name="formatsql" value="${anteros.formatsql}" />
+			<property name="database-ddl-generation" value="${anteros.database.ddl.generation}" />
+			<property name="script-ddl-generation" value="${anteros.script.ddl.generation}" />
+			<property name="application-location" value=""/>
+			<property name="create-tables-file-name" value="teste.sql"/>
+			<property name="drop-tables-file-name" value=""/>
+			<property name="ddl-output-mode" value="database" />
+			<property name="defaultSchema" value="" />
+			<property name="defaultCatalog" value="" />
+			<property name="dataSource" value="jdbcDataSource" />
+		</properties>
+	</session-factory>
+  </anteros-configuration>
