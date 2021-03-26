@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>br.com.anteros</groupId>
 	<artifactId>Anteros-RSQL</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 
 	<properties>
 		<java.versao>1.8</java.versao>
@@ -107,7 +107,7 @@
 			<version>${assertj-core.version}</version>
 			<scope>test</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
@@ -127,10 +127,33 @@
 			<version>1.4.200</version>
 			<scope>test</scope>
 		</dependency>
-
-
 	</dependencies>
 
+	<repositories>
+		<repository>
+			<id>local-REPO</id>
+			<url>http://vps4657.publiccloud.com.br:8082/artifactory/libs-release-local</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</repository>
+	</repositories>
+
+	<pluginRepositories>
+		<pluginRepository>
+			<id>local-REPO</id>
+			<url>http://vps4657.publiccloud.com.br:8082/artifactory/libs-release-local</url>
+			<releases>
+				<enabled>false</enabled>
+			</releases>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
 
 	<profiles>
 		<profile>
